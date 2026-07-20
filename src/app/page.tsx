@@ -1,65 +1,47 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element -- Preserve the animated party parrot GIF. */
+const parrots = [
+  { x: "10.8s", y: "7.4s", delay: "-2.3s", size: "4.5rem" },
+  { x: "14.2s", y: "9.1s", delay: "-6.7s", size: "5.5rem" },
+  { x: "8.9s", y: "12.6s", delay: "-11.4s", size: "3.75rem" },
+  { x: "15.7s", y: "10.3s", delay: "-4.1s", size: "4.75rem" },
+  { x: "12.3s", y: "13.8s", delay: "-8.6s", size: "4rem" },
+  { x: "9.7s", y: "15.2s", delay: "-13.1s", size: "3.9rem" },
+] as const;
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="relative grid min-h-svh place-items-center overflow-hidden bg-[#f4f0ff] px-6 text-[#1f1638]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.9),rgba(255,255,255,0)_55%)]" />
+
+      <section className="relative z-10 text-center">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.28em] text-[#7759c2]">
+          One quick thing
+        </p>
+        <h1 className="text-6xl font-bold tracking-[-0.06em] sm:text-8xl">Hi Colin!</h1>
+      </section>
+
+      <div className="parrot-field" aria-hidden="true">
+        {parrots.map((parrot) => (
+          <div
+            className="parrot-x"
+            key={parrot.delay}
+            style={
+              {
+                "--x-duration": parrot.x,
+                "--delay": parrot.delay,
+                "--size": parrot.size,
+              } as React.CSSProperties
+            }
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            <img
+              className="parrot-y"
+              src="/parrot.gif"
+              alt=""
+              style={{ "--y-duration": parrot.y } as React.CSSProperties}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
