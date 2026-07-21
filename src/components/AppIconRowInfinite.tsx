@@ -1,8 +1,7 @@
 import Image from "next/image";
 import icons from "@/data/icons.json";
 
-// One set is ~1680px wide; 4 copies (~6720px) keep the track at least 2x the
-// viewport. The marquee keyframe must travel 100% / COPIES.
+// The marquee keyframe must travel 100% / COPIES; 4 sets keep the track over 2x viewport.
 const COPIES = 4;
 
 export function AppIconRowInfinite() {
@@ -22,7 +21,7 @@ export function AppIconRowInfinite() {
                   alt={copy === 0 ? icon.alt : ""}
                   width={80}
                   height={80}
-                  className="size-16 rounded-3xl shadow-md shadow-gray-200 transition-transform duration-200 group-hover:scale-110 sm:size-20"
+                  className="size-16 rounded-3xl shadow-icon transition-transform duration-200 group-hover:scale-110 sm:size-20"
                 />
                 <span className="pointer-events-none absolute top-full left-1/2 mt-4 -translate-x-1/2 rounded-full bg-gray-200 px-3 py-1 font-mono text-[13px] whitespace-nowrap text-[#60646c] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                   {icon.alt}

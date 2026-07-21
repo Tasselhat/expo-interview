@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-jetbrains-mono);
+  --shadow-icon: 0px 10px 20px 0px #0000001a, 0px 3px 6px 0px #00000012;
 }
 
 body {
