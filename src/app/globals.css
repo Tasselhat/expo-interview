@@ -17,9 +17,9 @@ body {
   color: var(--foreground);
 }
 
-/* Travels exactly one icon set: the track holds 8 copies, so 100% / 8. */
+/* Travels exactly one icon set: the track holds 4 copies, so 100% / 4. */
 @keyframes marquee {
   to {
-    transform: translateX(-12.5%);
+    transform: translateX(-25%);
   }
 }

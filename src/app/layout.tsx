@@ -13,8 +13,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hi Colin!",
-  description: "A small frontend interview hello.",
+  title: "Tim Schneider - Frontend Expo Interview",
+  description: "A small frontend interview implementation from figma design.",
 };
 
 export default function RootLayout({
