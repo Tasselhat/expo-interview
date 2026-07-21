@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a12;
-  --foreground: #ededed;
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
@@ -16,44 +17,9 @@ body {
   color: var(--foreground);
 }
 
-.parrot-field {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.parrot-x {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: var(--size);
-  height: var(--size);
-  animation: bounce-x var(--x-duration) linear var(--delay) infinite alternate;
-}
-
-.parrot-y {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  animation: bounce-y var(--y-duration) linear var(--delay) infinite alternate;
-  filter: drop-shadow(0 0.5rem 0.6rem rgb(55 35 95 / 18%));
-}
-
-@keyframes bounce-x {
+/* Travels exactly one icon set: the track holds 8 copies, so 100% / 8. */
+@keyframes marquee {
   to {
-    transform: translateX(calc(100vw - var(--size)));
-  }
-}
-
-@keyframes bounce-y {
-  to {
-    transform: translateY(calc(100svh - var(--size)));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .parrot-x,
-  .parrot-y {
-    animation-play-state: paused;
+    transform: translateX(-12.5%);
   }
 }
